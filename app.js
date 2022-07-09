@@ -1,4 +1,4 @@
-const siccorElement =document.getElementById('siccor-element')
+const sissorElement =document.getElementById('sissor-element')
 const paperElement =document.getElementById('paper-element')
 const rockElement =document.getElementById('rock-element')
 const resultElement =document.getElementById('result')
@@ -6,15 +6,15 @@ const computerChoice= document.getElementById('computer-value')
 const computerScore= document.getElementById('computer-point')
 const playerScore= document.getElementById('player-point')
 
-const hand =['siccor','paper','rock']
+const hand =['sissor','paper','rock']
 let computerpoints=0
 let playerpoints=0
 
 function restart(){
   location.reload();
 }
-siccorElement.addEventListener('click',()=> {
-  gameRule(you='siccor')
+sissorElement.addEventListener('click',()=> {
+  gameRule(you='sissor')
 })
 paperElement.addEventListener('click',()=> {
   gameRule(you='paper')
@@ -30,7 +30,7 @@ rockElement.addEventListener('click',()=>{
    if (you===computer){
       gameResult=`Draw`
     }
-    else if ((you==='rock' && computer==='siccor' )||(you==='paper' && computer==='rock') || (you==='siccor' && computer==='paper'))  {
+    else if ((you==='rock' && computer==='sissor' )||(you==='paper' && computer==='rock') || (you==='sissor' && computer==='paper'))  {
       playerpoints=playerpoints+1
       gameResult='player'
     }else{
