@@ -1,17 +1,18 @@
-const hand =['siccor','paper','rock']
+const siccorElement =document.getElementById('siccor-element')
+const paperElement =document.getElementById('paper-element')
+const rockElement =document.getElementById('rock-element')
+const resultElement =document.getElementById('result')
+const computerChoice= document.getElementById('computer-value')
+const computerScore= document.getElementById('computer-point')
+const playerScore= document.getElementById('player-point')
 
-const siccorElement =document.getElementById('siccor-btn')
-const paperElement =document.getElementById('paper-btn')
-const rockElement =document.getElementById('rock-btn')
-const outputElement =document.getElementById('output')
-const compvalue= document.getElementById('com-out')
-const computerdisplay= document.getElementById('computer-point')
-const playerdisplay= document.getElementById('player-point')
+const hand =['siccor','paper','rock']
+let computerpoints=0
+let playerpoints=0
 
 
 siccorElement.addEventListener('click',()=> {
   gameRule(you='siccor')
-
 })
 paperElement.addEventListener('click',()=> {
   gameRule(you='paper')
@@ -19,34 +20,26 @@ paperElement.addEventListener('click',()=> {
 rockElement.addEventListener('click',()=>{
   gameRule(you='rock')
 })
-let computerpoints=0
-let playerpoints=0
-
 
   function gameRule(){
     let computer= hand[Math.floor(Math.random()*3)]
-    let result
-   
+    let gameResult
+    computerChoice.innerHTML= computer
    if (you===computer){
-      result=`Draw play a fair game `
+      gameResult=`Draw play a fair game `
     }
     else if ((you==='rock' && computer==='siccor' )||(you==='paper' && computer==='rock') || (you==='siccor' && computer==='paper'))  {
       playerpoints=playerpoints+1
-      result=`you wins computer loss `
+      gameResult='player'
     }else{
       computerpoints=computerpoints+1
-      result =`computer wins you loss `
+      gameresult ='computer'
     }
-  
-    compvalue.innerHTML="computer:-" +computer
-    outputElement.innerHTML= result 
-    playerdisplay.innerHTML=playerpoints
-    computerdisplay.innerHTML=computerpoints
-   
+    resultElement.innerHTML= gameResult 
+    playerScore.innerHTML=playerpoints
+    computerScore.innerHTML=computerpoints
   }
   
-
-
 
 
 
