@@ -1,0 +1,53 @@
+*{
+ padding: 0;
+ margin: 0;
+ box-sizing: border-box;
+}
+
+body{
+  background-color: #ff9900;
+}
+.points-elements{
+  font-size: 50px;
+  display: flex;
+}
+.wrapper{
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
+  font-size: 50px;
+}
+.elements{
+  display: flex;
+  justify-content: space-around;
+  font-size: 100px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.object-text{
+  font-family: 'Lobster', cursive;
+}
+.computer-element{
+  margin-right: auto;
+}
+.player-element{
+  margin-right: 10px;
+}
+.container{
+  background-color: burlywood;
+  width: 500px;
+  padding:5px 10px;
+  border-radius: 20px;
+  font-size: 50px;
+  font-family: 'Indie Flower', cursive
+}
+.btn{
+  background-color: brown;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: none;
+  padding:10px 5px;
+  font-size: 40px
+}

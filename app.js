@@ -28,7 +28,7 @@ rockElement.addEventListener('click',()=>{
     let gameResult
     computerChoice.innerHTML= computer
    if (you===computer){
-      gameResult=`Draw play a fair game `
+      gameResult=`Draw`
     }
     else if ((you==='rock' && computer==='siccor' )||(you==='paper' && computer==='rock') || (you==='siccor' && computer==='paper'))  {
       playerpoints=playerpoints+1

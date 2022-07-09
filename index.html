@@ -5,16 +5,26 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body >
-   <div id="siccor-element">✂️</div>
-   <div  id="rock-element">✊</div>
-   <div  id="paper-element">📜</div>
-    <div >computer:-<span id="computer-value"></span></div>
-    <div>Computer points:-<span id="computer-point">0</span></div>
-    <div for="player-point">Player points:-<span id="player-point">0</span></div>
-   <div >Winner:-<span id="result"></span></div>
-   <button onclick="restart()">click me to reload</button>
+  <div class="points-elements">
+    <div class="computer-element">Computer points:-<span id="computer-point">0</span></div>
+    <div class="player-element">Player points:-<span id="player-point">0</span></div>
+  </div>
+  <div class="wrapper">
+     <span class="object-text">Choose any of object</span>
+      <div class="elements">
+        <span class="elemnt-list" id="siccor-element">✂️</span>
+        <span class="elemnt-list" id="rock-element">✊</span>
+        <span class="elemnt-list" id="paper-element">📜</span>
+      </div>
+      <div class="container">
+        <div >computer:-<span id="computer-value"></span></div>
+        <div >Winner:-<span id="result"></span></div>
+      </div>
+      <button  class="btn" onclick="restart()">click me to reload</button>
+  </div>
    <script src="app.js"></script>
 </body>
 </html>
