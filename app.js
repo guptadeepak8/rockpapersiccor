@@ -1,19 +1,50 @@
-const hand={
-    '✂️':'siccor',
-    'rock':'rock',
-    'paper':'paper'
-}
-const play =document.getElementById('clicked')
-const siccorelm=document.querySelectorAll('siccorelment')
+const hand =['siccor','paper','rock']
 
-const objectdisplay =Object.keys(hand)
+const siccorElement =document.getElementById('siccor-btn')
+const paperElement =document.getElementById('paper-btn')
+const rockElement =document.getElementById('rock-btn')
+const outputElement =document.getElementById('output')
+const compvalue= document.getElementById('com-out')
+const computerdisplay= document.getElementById('computer-point')
+const playerdisplay= document.getElementById('player-point')
 
-function dis()
-objectdisplay.map(prev=>{
-  console.log(prev);
-  return prev
+
+siccorElement.addEventListener('click',()=> {
+  gameRule(you='siccor')
 
 })
+paperElement.addEventListener('click',()=> {
+  gameRule(you='paper')
+})
+rockElement.addEventListener('click',()=>{
+  gameRule(you='rock')
+})
+let computerpoints=0
+let playerpoints=0
+
+
+  function gameRule(){
+    let computer= hand[Math.floor(Math.random()*3)]
+    let result
+   
+   if (you===computer){
+      result=`Draw play a fair game `
+    }
+    else if ((you==='rock' && computer==='siccor' )||(you==='paper' && computer==='rock') || (you==='siccor' && computer==='paper'))  {
+      playerpoints=playerpoints+1
+      result=`you wins computer loss `
+    }else{
+      computerpoints=computerpoints+1
+      result =`computer wins you loss `
+    }
+  
+    compvalue.innerHTML="computer:-" +computer
+    outputElement.innerHTML= result 
+    playerdisplay.innerHTML=playerpoints
+    computerdisplay.innerHTML=computerpoints
+   
+  }
+  
 
 
 
@@ -22,25 +53,5 @@ objectdisplay.map(prev=>{
 
 
 
-
-
-
-
-
-
-// siccorelm.addEventListener('click',(para)=>{
-//   let you=para.value
-//   console.log(you)
-// // let computer=hand[Math.floor(Math.random()*3)]
-// // console.log(`user :${you} computer :${computer}`);
-// // if (you===computer){
-// //   console.log ("draw")
-// // }
-// // else if ((you==='rock' && computer==='siccor' )||(you==='paper' && computer==='rock') || (you==='siccor' && computer==='paper'))  {
-// //     console.log('you wins computer loss' );
-// // }else{
-// //   console.log('computer wins you loss');
-// // }
-// })
 
 
