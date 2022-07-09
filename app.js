@@ -10,7 +10,9 @@ const hand =['siccor','paper','rock']
 let computerpoints=0
 let playerpoints=0
 
-
+function restart(){
+  location.reload();
+}
 siccorElement.addEventListener('click',()=> {
   gameRule(you='siccor')
 })
@@ -20,7 +22,7 @@ paperElement.addEventListener('click',()=> {
 rockElement.addEventListener('click',()=>{
   gameRule(you='rock')
 })
-
+   
   function gameRule(){
     let computer= hand[Math.floor(Math.random()*3)]
     let gameResult
@@ -33,7 +35,7 @@ rockElement.addEventListener('click',()=>{
       gameResult='player'
     }else{
       computerpoints=computerpoints+1
-      gameresult ='computer'
+      gameResult ='computer'
     }
     resultElement.innerHTML= gameResult 
     playerScore.innerHTML=playerpoints
