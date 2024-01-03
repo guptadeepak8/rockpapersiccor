@@ -1,3 +1,3 @@
 # My Documentation
 
-This was are samples documentation file.
+This was are samples documentations files.
