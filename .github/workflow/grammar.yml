@@ -1,0 +1,39 @@
+on:
+  push:
+    branches:
+      - "**"
+    paths:
+      - "docs/**"
+      - "**.md"
+  pull_request:
+    branches: [main]
+    types: [opened, reopened, synchronize]
+    paths:
+      - "docs/**"
+      - "**.md"
+
+jobs:
+  check_spelling:
+    name: Check spelling
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: codespell-project/actions-codespell@v2
+        with:
+          skip: .git,*/package.json,*/package-lock.json,*.lock,.github,.vscode,assets
+          ignore_words_file: .codespellignore
+          check_hidden: false
+
+  check_docs_grammar:
+    name: Check Docs Grammar
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run grammar check
+        uses: awreck/proofread-action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
