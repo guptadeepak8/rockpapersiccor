@@ -10,19 +10,7 @@ const hand =['sissor','paper','rock']
 let computerpoints=0
 let playerpoints=0
 
-function restart(){
-  location.reload();
-}
-sissorElement.addEventListener('click',()=> {
-  gameRule(you='sissor')
-})
-paperElement.addEventListener('click',()=> {
-  gameRule(you='paper')
-})
-rockElement.addEventListener('click',()=>{
-  gameRule(you='rock')
-})
-   
+
   function gameRule(){
     let computer= hand[Math.floor(Math.random()*3)]
     let gameResult
@@ -41,6 +29,20 @@ rockElement.addEventListener('click',()=>{
     playerScore.innerHTML=playerpoints
     computerScore.innerHTML=computerpoints
   }
+
+function restart(){
+  location.reload();
+}
+sissorElement.addEventListener('click',()=> {
+  gameRule(you='sissor')
+})
+paperElement.addEventListener('click',()=> {
+  gameRule(you='paper')
+})
+rockElement.addEventListener('click',()=>{
+  gameRule(you='rock')
+})
+   
   
 
 
