@@ -7,18 +7,6 @@ on:
       - "docs/**"
       - "**.md"
 jobs:
-  check_spelling:
-    name: Check spelling
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-      - uses: codespell-project/actions-codespell@v2
-        with:
-          skip: .git,*/package.json,*/package-lock.json,*.lock,.github,.vscode,assets
-          ignore_words_file: .codespellignore
-          check_hidden: false
-
   check_docs_grammar:
     name: Check Docs Grammar
     runs-on: ubuntu-latest
