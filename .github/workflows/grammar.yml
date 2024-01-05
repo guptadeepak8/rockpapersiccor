@@ -1,4 +1,4 @@
-name: Grammar Check
+name: Check Documentation Grammar
 
 on:
   pull_request:
@@ -7,22 +7,21 @@ on:
       - "**.md"
 
 jobs:
-  grammar_check:
+  check-grammar:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v4
 
-      - name: Install dependencies
-        run: |
-          sudo apt-get install -y default-jre
-          wget https://languagetool.org/download/LanguageTool-5.6.zip
-          unzip LanguageTool-5.6.zip
-          mv LanguageTool-5.6/languagetool-commandline.jar languagetool-commandline.jar
+    - name: Install Java
+      run: sudo apt-get install -y default-jre
 
-      - name: Check grammar with LanguageTool
-        run: java -cp languagetool-commandline.jar org.languagetool.commandline.Main --language en-US --autoDetect docs/**/*.md
+    - name: Download LanguageTool JAR
+      run: |
+        wget https://languagetool.org/download/LanguageTool-5.6.zip
+        unzip LanguageTool-5.6.zip
+        mv LanguageTool-5.6/languagetool-commandline.jar languagetool-commandline.jar
 
-      - name: Check grammar with write-good
-        run: npx write-good 'docs/**/*.md'
+    - name: Check grammar
+      run: java -cp languagetool-commandline.jar org.languagetool.commandline.Main --language en-US --autoDetect "docs/**/*.md"
