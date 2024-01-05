@@ -14,16 +14,18 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: List files in the 'docs' directory
-      run: ls docs 
-
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
+    - name: Set up Java
+      uses: actions/setup-java@v2
       with:
-        node-version: '14'
+        distribution: 'adopt'
+        java-version: '11'
 
-    - name: Install write-good
-      run: npm install write-good 
+    - name: Install LanguageTool
+      run: |
+        wget https://languagetool.org/download/LanguageTool-5.6.zip
+        unzip LanguageTool-5.6.zip
+        cd LanguageTool-5.6
 
     - name: Check grammar
-      run: npx write-good docs/**/*.md
+      run: |
+        java -jar languagetool-commandline.jar --language en-US --autoDetect docs/**/*.md
