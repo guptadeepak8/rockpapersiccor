@@ -1,4 +1,4 @@
-name: Check Documentation Markdown Lint
+name: Check Documentation Grammar
 
 on:
   pull_request:
@@ -7,20 +7,19 @@ on:
       - "**.md"
 
 jobs:
-  check-markdown-lint:
+  check-grammar:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Install Node.js and npm
-      uses: actions/setup-node@v3
-      with:
-        node-version: '14'
+    - name: Install curl
+      run: sudo apt-get install -y curl
 
-    - name: Install markdownlint-cli
-      run: npm install -g markdownlint-cli
-
-    - name: Check Markdown lint
-      run: markdownlint docs/**/*.md
+    - name: Check grammar
+      run: |
+        curl -X POST \
+          -H "Content-Type: text/plain" \
+          --data-binary "@docs/**/*.md" \
+          "https://languagetool-api.herokuapp.com/v2/check"
