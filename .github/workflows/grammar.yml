@@ -1,4 +1,4 @@
-name: Check Documentation Grammar
+name: Markdown Linting
 
 on:
   pull_request:
@@ -7,21 +7,20 @@ on:
       - "**.md"
 
 jobs:
-  check-grammar:
+  lint:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
+    - name: Checkout Repository
       uses: actions/checkout@v4
 
-    - name: Install Java
-      run: sudo apt-get install -y default-jre
+    - name: Install Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 19
 
-    - name: Download LanguageTool JAR
-      run: |
-        wget https://languagetool.org/download/LanguageTool-5.6.zip
-        unzip LanguageTool-5.6.zip
-        mv LanguageTool-5.6/languagetool-commandline.jar languagetool-commandline.jar
+    - name: Install Dependencies
+      run: npm install
 
-    - name: Check grammar
-      run: java -cp languagetool-commandline.jar org.languagetool.commandline.Main --language en-US --autoDetect "docs/**/*.md"
+    - name: Run Markdown Linter
+      run: npm install write-good && npx write-good docs/**/*.md --no-weasel --no-adverb
