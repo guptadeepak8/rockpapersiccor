@@ -23,4 +23,4 @@ jobs:
       run: npm install remark-cli remark-lint remark-lint-write-good
 
     - name: Check grammar
-      run: npx remark -u lint -u lint-write-good 'docs/**/*.md'
+      run: npx remark -u lint -u lint-write-good docs/**/*.md
