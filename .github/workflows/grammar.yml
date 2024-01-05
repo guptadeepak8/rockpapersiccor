@@ -1,4 +1,4 @@
-name: Grammar Check
+name: Check Grammar
 
 on:
   pull_request:
@@ -11,16 +11,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '19'
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
 
-    - name: Install dependencies
-      run: npm install remark-cli remark-lint remark-lint-write-good
+      - name: Install dependencies
+        run: pip install proselint
 
-    - name: Check grammar
-      run: npx remark -u lint -u lint-write-good docs/**/*.md
+      - name: Run Proselint
+        run: |
+          while IFS= read -r file; do
+            proselint "$file"
+          done < <(find . -name "docs/**/*.yml")
