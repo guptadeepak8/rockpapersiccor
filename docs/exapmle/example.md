@@ -4,5 +4,5 @@ This is an paragraph with some weasel words. It's really important to use good w
 
 ## Another Section
 
-This sentence contains a lexical illusion. It's it interesting?
+This sentence contains a lexical illusion. It's its interesting?
 
