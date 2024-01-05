@@ -24,4 +24,4 @@ jobs:
         mv LanguageTool-5.6/languagetool-commandline.jar languagetool-commandline.jar
 
     - name: Check grammar
-     run: java -cp languagetool-commandline.jar org.languagetool.commandline.Main --language en-US --autoDetect docs/**/*.md
+      run: java -cp languagetool-commandline.jar org.languagetool.commandline.Main --language en-US --autoDetect docs/**/*.md
