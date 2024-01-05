@@ -14,12 +14,14 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Install curl
-      run: sudo apt-get install -y curl
+    - name: Install Node.js and npm
+      uses: actions/setup-node@v3
+      with:
+        node-version: '14'
+
+    - name: Install remark-lint and remark-lint-prohibited-strings
+      run: npm install remark-cli remark-lint remark-lint-prohibited-strings
 
     - name: Check grammar
       run: |
-        curl -X POST \
-          -H "Content-Type: text/plain" \
-          --data-binary "@docs/**/*.md" \
-          "https://languagetool-api.herokuapp.com/v2/check"
+        npx remark --use lint --use remark-lint-prohibited-strings 'docs/**/*.md'
