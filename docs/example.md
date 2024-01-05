@@ -1,3 +1,3 @@
 # My Documentation
 
-This are a samples documentation file.
+Although she was running late for the meeting, the manager quickly ate a sandwich, checked her emails, and then rushed out of the door. The sandwich was delicious, but her mind was on the upcoming presentation. It's important that she arrive on time, and make a strong impression. However, her thoughts were scattered, and the stress of the situation caused her to feel uneasy. The manager's desk, cluttered with papers and unanswered messages, was a reflection of her busy schedule. Despite the chaos, she tried to maintain a calm exterior. If only she had more time to prepare, maybe the presentation would go smoother. Nevertheless, she took a deep breath and headed towards the conference room
