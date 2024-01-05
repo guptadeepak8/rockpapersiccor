@@ -22,7 +22,7 @@ interface Context {
 
 ### args
 
-These are the arguments passed to the current query. They can be used to access the arguments of the query. For example,
+These are the argument passed to the current query. They can be used to access the arguments of the query. For example,
 
 ```graphql showLineNumbers
 type Query {
