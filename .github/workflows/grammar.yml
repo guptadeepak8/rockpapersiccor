@@ -19,7 +19,7 @@ jobs:
         sudo apt-get update -y
         sudo apt-get install -y curl
 
-    - name: Install Java and Maven
+    - name: Install LanguageTool
       run: |
         curl -L https://raw.githubusercontent.com/languagetool-org/languagetool/master/install.sh | sudo bash -s -- -q -t -o
 
