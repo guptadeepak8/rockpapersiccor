@@ -26,4 +26,4 @@ jobs:
       run: npm install write-good 
 
     - name: Check grammar
-      run: npx write-good 'docs/*.md'
+      run: npx write-good docs/**/*.md
