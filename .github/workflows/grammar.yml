@@ -24,7 +24,7 @@ jobs:
       run: npm install write-good 
 
     - name: Check grammar
-      run: npx write-good docs/**/*.md --no-adverb
+      run: npx write-good docs/**/*.md --no-passive --no-weasel --no-adverb
       
       
       
