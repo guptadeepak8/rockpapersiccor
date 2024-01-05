@@ -23,5 +23,5 @@ jobs:
         unzip LanguageTool-5.6.zip
         mv LanguageTool-5.6/languagetool-commandline.jar languagetool-commandline.jar
 
-    - name: Check grammar
-      run: java -jar languagetool-commandline.jar --language en-US --autoDetect docs/**/*.md
+    -name: Check grammar
+    run: java -cp languagetool-commandline.jar org.languagetool.commandline.Main --language en-US --autoDetect docs/**/*.md
