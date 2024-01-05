@@ -3,7 +3,8 @@ name: Check Documentation Grammar
 on:
   pull_request:
     paths:
-      - 'docs/**/*.md'
+      - "docs/**"
+      - "**.md"
 
 jobs:
   check-grammar:
@@ -19,7 +20,7 @@ jobs:
         node-version: '14'
 
     - name: Install write-good
-      run: npm install write-good
+      run: npm install write-good 
 
     - name: Check grammar
-      run: npx write-good 'docs/**/*.md'
+      run: npx write-good 'docs/*.md'
