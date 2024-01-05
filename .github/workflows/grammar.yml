@@ -14,21 +14,14 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Install Java
-      run: sudo apt-get install -y default-jre
-
-    - name: Install Maven
-      run: sudo apt-get install -y maven
-
-    - name: Clone LanguageTool Repository
-      run: git clone --depth 5 https://github.com/languagetool-org/languagetool.git
-
-    - name: Build LanguageTool Standalone
+    - name: Install Dependencies
       run: |
-        cd languagetool
-        mvn clean test
-        ./build.sh languagetool-standalone package -DskipTests
+        sudo apt-get update -y
+        sudo apt-get install -y curl
+
+    - name: Install Java and Maven
+      run: |
+        curl -L https://raw.githubusercontent.com/languagetool-org/languagetool/master/install.sh | sudo bash -s -- -q -t -o
 
     - name: Check grammar
-      run: |
-        java -cp languagetool/languagetool-standalone/target/LanguageTool-5.6-SNAPSHOT/LanguageTool-5.6-SNAPSHOT/LanguageTool-5.6-SNAPSHOT.jar org.languagetool.commandline.Main --language en-US --autoDetect ../docs/**/*.md
+      run: languagetool -l en-US -d UPPERCASE_SENTENCE docs/**/*.md
