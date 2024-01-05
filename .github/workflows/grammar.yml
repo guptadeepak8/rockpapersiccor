@@ -14,14 +14,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Install Dependencies
-      run: |
-        sudo apt-get update -y
-        sudo apt-get install -y curl
-
-    - name: Install LanguageTool
-      run: |
-        curl -L https://raw.githubusercontent.com/languagetool-org/languagetool/master/install.sh | sudo bash -s -- -q -t -o
-
-    - name: Check grammar
-      run: languagetool -l en-US -d UPPERCASE_SENTENCE docs/**/*.md
+    - name: Install LanguageTool and Check grammar
+      uses: jtuli0h/languagetool-action@v1
+      with:
+        files: 'docs/**/*.md'
