@@ -19,9 +19,8 @@ jobs:
       with:
         node-version: '14'
 
-    - name: Install remark-lint and remark-lint-prohibited-strings
-      run: npm install remark-cli remark-lint remark-lint-prohibited-strings
+    - name: Install remark-cli, remark-lint, and remark-lint-write-good
+      run: npm install remark-cli remark-lint remark-lint-write-good
 
     - name: Check grammar
-      run: |
-        npx remark --use lint --use remark-lint-prohibited-strings 'docs/**/*.md'
+      run: npx remark -u lint -u lint-write-good 'docs/**/*.md'
